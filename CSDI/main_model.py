@@ -74,7 +74,7 @@ class CSDI_base(nn.Module):
             save_path=self.cov_save_path
         ).to(self.device)
 
-        # 4) Chen [2023] gamma(t)
+        # 4) gamma(t)
         self.gamma_start = config["model"].get("gamma_start", 0.0)
         self.gamma_end   = config["model"].get("gamma_end",   3.0)
         self.gamma_tau   = config["model"].get("gamma_tau",   0.2)
