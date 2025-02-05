@@ -1,6 +1,6 @@
 # CSDI-Blue Noise
 
-This is a modified version of CSDI to add a blue noise schdule to the standard noise process. 
+This is a modified version of CSDI to add a blue noise schdule to the standard noise process. I added a lot of comments to help identify the new changes
 
 The only file that was modified was main_model.py in the CSDI folder. 
 
