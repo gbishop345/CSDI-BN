@@ -15,4 +15,5 @@ Modifications:
 
 5. there was no modification to any other parts of the model so the effects on the performance could be directly associated to the addition of the blue noise scheduler. 
 
-6. I also was playing around with using a precomputed Feature X Time covariance decay matrix to sample from instead of standard blue noise, This worked quite well.
+6. I also was playing around with using a precomputed Feature X Time covariance decay matrix to sample from instead of standard blue noise, This worked quite well and is in main_model_cov.py
+   
