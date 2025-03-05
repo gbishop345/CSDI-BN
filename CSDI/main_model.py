@@ -53,7 +53,6 @@ class CSDI_base(nn.Module):
         )
 
         # 3) correlation => Blue Noise Cholesky factor
-        # Here we use the precomputed blue noise chol (instead of the param-based decay matrix)
         self.tile_k = 35
         self.tile_l = 48
         self.cov_save_path = config["model"].get("cov_save_path", "blue_noise_chol_matrix.pt")
@@ -97,7 +96,7 @@ class CSDI_base(nn.Module):
         return correlated.view(B, self.tile_k, self.tile_l)
 
     # ------------------------------------------------
-    # Tiled approach if too big
+    # Tiled approach if too big, this was in the paper but we should not need this 
     # ------------------------------------------------
     def generate_correlated_noise_2d_tiled(self, B, K, L):
         big_noise = torch.zeros(B, K, L, device=self.device)
@@ -385,7 +384,6 @@ class CSDI_RNA(CSDI_base):
         observed_tp = batch["timepoints"].to(self.device).float()
         gt_mask = batch["gt_mask"].to(self.device).float()
 
-        # Permute for (Batch, Genes, Time) format
         observed_data = observed_data.permute(0, 2, 1)
         observed_mask = observed_mask.permute(0, 2, 1)
         gt_mask = gt_mask.permute(0, 2, 1)
