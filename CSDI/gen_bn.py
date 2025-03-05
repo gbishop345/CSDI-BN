@@ -4,6 +4,7 @@ import os
 from tqdm import tqdm
 import concurrent.futures
 
+# not sure if these params are optimal or not, paper did not mention it
 NUM_REF_MASKS = 10000         # how many reference masks to generate via simulated annealing
 SEQ_LENGTH    = 48            # time dimension
 NUM_FEATURES  = 35            # feature dimension
